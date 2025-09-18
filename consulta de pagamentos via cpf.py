@@ -19,7 +19,7 @@ driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 url = 'https://consultcpf-devaprender.netlify.app/'
 driver.get(url)
 
-planilha_fechamento = openpyxl.load_workbook('planilha fechamento.xlsx')
+planilha_fechamento = openpyxl.load_workbook('planilha fechamento(1).xlsx')
 pagina_fechamento = planilha_fechamento['Sheet1']
 
 # 7 - Repetir até chegar na ultima linha
@@ -58,12 +58,12 @@ for linha in pagina_cliente.iter_rows(min_row=2, values_only=True):
         pagina_fechamento.append(
             [nome, valor, cpf, vencimento, 'em dia', data_pagamento_limpo, metodo_pagamento_limpo])
 
-        planilha_fechamento.save('planilha fechamento.xlsx')
+        planilha_fechamento.save('planilha fechamento(1).xlsx')
 
     else:
         # 5 - Caso contrario(se estiver atrasado), colocar o status como pendente em uma nova planilha
         pagina_fechamento.append([nome, valor, cpf, vencimento, 'pendente'])
 
-        planilha_fechamento.save('planilha fechamento.xlsx')
+        planilha_fechamento.save('planilha fechamento(1).xlsx')
 
 driver.quit()
