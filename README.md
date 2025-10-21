@@ -1,62 +1,23 @@
-# 🔎 Automação de Consulta de Pagamentos por CPF
+# Automação de Consulta e Atualização de Pagamentos via Selenium
 
+## Objetivo:
+Automatizar o processo de verificação de status de pagamento de clientes, consultando informações em um site e atualizando automaticamente uma planilha de fechamento.
 
-Este projeto utiliza Python + Selenium + OpenPyXL para automatizar a consulta de status de pagamentos em um site de validação de CPF e registrar os resultados em uma planilha de fechamento.
+## Principais etapas realizadas:
 
-🚀 Como funciona
+- Leitura dos dados: Extração automática de informações (nome, CPF, valor e vencimento) a partir de uma planilha Excel com os dados dos clientes.
 
-Entrada de dados
+- Automação de consultas: Utilização do Selenium WebDriver para acessar o site de verificação de CPF e consultar o status de cada cliente.
 
-O script lê os dados de clientes de uma planilha dados_clientes.xlsx contendo:
+- Identificação de pagamentos:
 
-Nome
+Se o status for “em dia”, o script captura a data e o método de pagamento (cartão ou boleto).
 
-Valor
+Caso contrário, marca o cliente como “pendente”.
 
-CPF
+- Atualização automática: As informações são registradas e salvas em uma planilha de fechamento, consolidando todos os resultados.
 
-Vencimento
+- Execução contínua: O processo é repetido automaticamente para todos os registros até o final da planilha.
 
-Consulta automática
-
-Abre o navegador com Selenium
-
-Acessa o site de consulta de CPF
-
-Preenche o CPF do cliente
-
-Verifica o status do pagamento (em dia ou atrasado)
-
-Saída de dados
-
-Se o cliente estiver em dia:
-
-Extrai a data do pagamento e o método de pagamento (cartão ou boleto)
-
-Registra na planilha planilha fechamento.xlsx com status "ok"
-
-Se o cliente estiver atrasado:
-
-Registra na planilha planilha fechamento.xlsx com status "pendente"
-
-📂 Estrutura esperada de arquivos
-
-dados_clientes.xlsx → Planilha de entrada com os dados dos clientes
-
-planilha fechamento.xlsx → Planilha de saída/fechamento com os resultados das consultas
-
-🛠 Tecnologias utilizadas
-
-Python
-
-Selenium
- → Automação de navegador
-
-OpenPyXL
- → Manipulação de planilhas Excel
-
-📌 Observações
-
-É necessário ter o Google Chrome e o chromedriver compatível com sua versão do navegador.
-
-Certifique-se de que as planilhas de entrada e saída estejam no mesmo diretório do script.
+## Resumo:
+Automação desenvolvida em Python + Selenium + OpenPyXL, eliminando a necessidade de verificação manual de pagamentos e garantindo maior eficiência, precisão e economia de tempo nos processos administrativos.
